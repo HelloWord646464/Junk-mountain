@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Junk Mountain</title>
+  <link rel="icon" href="./icon.png" />
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <div id="loading" class="screen">
+    <div class="load-inner">
+      <h1 class="logo"><span>JUNK</span><span>MOUNTAIN</span></h1>
+      <div class="bar"><div id="load-fill"></div></div>
+      <p id="load-text">Hauling junk into the yard…</p>
+    </div>
+  </div>
+
+  <div id="menu" class="screen" hidden>
+    <div class="menu-inner">
+      <h1 class="logo"><span>JUNK</span><span>MOUNTAIN</span></h1>
+      <p class="tagline">Somewhere in there is a <b>$4,200,000</b> lottery ticket.</p>
+      <div class="menu-buttons">
+        <button id="btn-continue" class="btn primary">Continue</button>
+        <button id="btn-new" class="btn">New game</button>
+        <button id="btn-settings" class="btn">Settings</button>
+        <button id="btn-controls" class="btn">Controls</button>
+        <button id="btn-quit" class="btn">Quit</button>
+      </div>
+      <div id="confirm-new" class="confirm" hidden>
+        <p>Start over? Your current yard and money will be lost.</p>
+        <button id="btn-new-yes" class="btn danger">Start a new yard</button>
+        <button id="btn-new-no" class="btn">Keep my yard</button>
+      </div>
+    </div>
+    <p class="credits">Models and textures: Poly Haven (CC0)</p>
+  </div>
+
+  <div id="hud" hidden>
+    <div id="hud-tl">
+      <div id="money">$0</div>
+      <div id="clock"><span id="clock-time">07:15</span> <span id="clock-day">Day 1</span></div>
+    </div>
+    <div id="compass"><div id="compass-strip"></div><div class="compass-tick"></div></div>
+    <div id="hud-tr">
+      <div id="power-box" hidden>
+        <div class="pw-row"><span class="lbl">Power</span><span id="pw-text">0 / 0 kW</span></div>
+        <div class="pw-bar"><div id="pw-fill"></div></div>
+        <div class="pw-row" id="bat-row" hidden><span class="lbl">Battery</span><span id="bat-text">0%</span></div>
+        <div class="pw-bar" id="bat-bar-wrap" hidden><div id="bat-fill"></div></div>
+      </div>
+    </div>
+    <div id="toasts"></div>
+    <div id="crosshair"><div id="charge-ring"></div><div id="dig-ring"></div></div>
+    <div id="prompt" hidden></div>
+    <div id="detector" hidden><div class="det-label">SIGNAL</div><div class="det-bar"><div id="det-fill"></div></div><div id="det-dist"></div></div>
+    <div id="hud-bl">
+      <div id="held" hidden></div>
+      <div class="pack-row"><span class="lbl">Backpack</span><span id="pack-text">0 / 40 kg</span></div>
+      <div class="pack-bar"><div id="pack-fill"></div></div>
+      <div id="tool-name">Rusty spade</div>
+    </div>
+    <div id="hud-br"></div>
+    <div id="floaters"></div>
+  </div>
+
+  <div id="build-bar" hidden>
+    <div id="build-info"></div>
+    <div id="build-cards"></div>
+  </div>
+
+  <div id="panel" class="screen dim" hidden>
+    <div id="panel-box"></div>
+  </div>
+
+  <div id="popup" hidden></div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
