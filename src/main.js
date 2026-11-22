@@ -99,6 +99,7 @@ class Game {
     this._loop();
     setInterval(() => { if (this.mode === 'play') this.save(); }, 60000);
     addEventListener('beforeunload', () => { if (this.started) this.save(); });
+    addEventListener('resize', () => this.particles.setScale(innerHeight * this.renderer.renderer.getPixelRatio() / (2 * Math.tan(THREE.MathUtils.degToRad(this.settings.fov) / 2))));
   }
 
   // ---------- game state ----------

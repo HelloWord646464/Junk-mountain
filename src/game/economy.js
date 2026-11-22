@@ -30,7 +30,8 @@ export class Economy {
 
   value(rec, sorted) {
     if (!sorted) return rec.mass * MIXED_PRICE;
-    return rec.mass * MATERIALS[recPrimary(rec)].price;
+    // fully sorted value: every material at its own price
+    return Object.entries(recComp(rec)).reduce((a, [m, f]) => a + rec.mass * f * MATERIALS[m].price, 0);
   }
 
   earn(amount, pos, label) {

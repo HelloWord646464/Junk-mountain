@@ -57,11 +57,6 @@
       "category": "Game"
     }
   },
-  "dependencies": {
-    "@fontsource/barlow-condensed": "^5.1.0",
-    "@fontsource/ibm-plex-mono": "^5.1.0",
-    "three": "^0.170.0"
-  },
   "devDependencies": {
     "@gltf-transform/core": "^4.1.1",
     "@gltf-transform/extensions": "^4.1.1",
@@ -70,6 +65,10 @@
     "electron-builder": "^25.1.8",
     "meshoptimizer": "^0.22.0",
     "sharp": "^0.33.5",
-    "vite": "^5.4.11"
-  }
+    "vite": "^5.4.11",
+    "@fontsource/barlow-condensed": "^5.1.0",
+    "@fontsource/ibm-plex-mono": "^5.1.0",
+    "three": "^0.170.0"
+  },
+  "dependencies": {}
 }

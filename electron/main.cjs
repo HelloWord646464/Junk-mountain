@@ -3,6 +3,7 @@
 const { app, BrowserWindow, protocol, net, ipcMain, Menu } = require('electron');
 const path = require('node:path');
 const { pathToFileURL } = require('node:url');
+const fs = require('node:fs');
 
 protocol.registerSchemesAsPrivileged([
   { scheme: 'app', privileges: { standard: true, secure: true, supportFetchAPI: true, stream: true } },
@@ -25,6 +26,15 @@ function createWindow() {
   Menu.setApplicationMenu(null);
   win.once('ready-to-show', () => { win.maximize(); win.show(); });
   win.loadURL('app://game/index.html');
+  // Developer smoke test: JM_SMOKE=out.png captures the window after loading, then quits.
+  if (process.env.JM_SMOKE) {
+    win.webContents.on('console-message', (_e, level, msg) => console.log('[page]', msg));
+    win.webContents.once('did-finish-load', () => setTimeout(async () => {
+      const img = await win.webContents.capturePage();
+      fs.writeFileSync(process.env.JM_SMOKE, img.toPNG());
+      app.quit();
+    }, +(process.env.JM_SMOKE_WAIT || 30000)));
+  }
   win.webContents.on('before-input-event', (e, input) => {
     if (input.type === 'keyDown' && input.key === 'F11') { win.setFullScreen(!win.isFullScreen()); e.preventDefault(); }
   });

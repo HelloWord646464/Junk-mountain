@@ -3,7 +3,7 @@
 export const CELL = 1.0;               // size of one pile cell in metres
 export const DAY_SECONDS = 24 * 60;    // one in-game day lasts 24 real minutes
 export const START_HOUR = 7.25;
-export const START_MONEY = 150;
+export const START_MONEY = 300;
 export const TICKET_PRIZE = 4_200_000;
 export const MIXED_PRICE = 1.0;        // $ per kg of unsorted junk
 
