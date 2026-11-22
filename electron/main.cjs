@@ -16,7 +16,7 @@ function createWindow() {
   win = new BrowserWindow({
     width: 1600, height: 900, minWidth: 1024, minHeight: 600,
     backgroundColor: '#0d0b09', show: false, title: 'Junk Mountain',
-    icon: path.join(__dirname, '..', 'build', 'icon.png'),
+    icon: path.join(DIST, 'icon.png'),
     autoHideMenuBar: true,
     webPreferences: {
       preload: path.join(__dirname, 'preload.cjs'),
